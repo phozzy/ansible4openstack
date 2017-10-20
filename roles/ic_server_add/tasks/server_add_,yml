@@ -1,0 +1,31 @@
+---
+- name: create server
+  os_server:
+    state: present
+    flavor: "{{ sflavor }}"
+    name: "{{ sname }}"
+    auto_ip: false
+    key_name: "{{ keys }}"
+    nics:
+    - port-name: "{{ sname }}"
+    boot_volume: "{{ sname }}"
+    terminate_volume: true
+    userdata: |
+      #cloud-config
+      fqdn: {{ sname }}.{{ sdomain }}
+      packages:
+      - adcli
+      - certmonger
+      - ipa-client
+      - oddjob-mkhomedir
+      - realmd
+      - sssd
+      runcmd:
+      - [ ipa-client-install, --mkhomedir, --force-ntpd, --ssh-trust-dns, --enable-dns-updates, --unattended, --password, "{{ host.stdout_lines[0] }}" ]
+
+- name: get facts about server
+  os_server_facts:
+    server: "{{ sname }}"
+- debug:
+    var: openstack_servers
+...

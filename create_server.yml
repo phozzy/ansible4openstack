@@ -1,0 +1,9 @@
+---
+- name: Create server in Openstack cloud
+  hosts: localhost
+
+  roles:
+  - port_add
+  - volume_add
+  - ic_server_add
+...

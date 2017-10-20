@@ -1,0 +1,6 @@
+- name: create port
+  os_port:
+    state: present
+    name: "{{ sname }}"
+    network: "{{ snet }}"
+    security_groups: "{{ security }}"

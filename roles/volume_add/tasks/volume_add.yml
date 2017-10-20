@@ -1,0 +1,6 @@
+- name: create volume
+  os_volume:
+    state: present
+    display_name: "{{ sname }}"
+    image: "{{ simage }}"
+    size: "{{ vsize }}"

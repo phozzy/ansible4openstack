@@ -21,7 +21,7 @@
       - realmd
       - sssd
       runcmd:
-      - [ ipa-client-install, --mkhomedir, --force-ntpd, --ssh-trust-dns, --enable-dns-updates, --unattended, --password, "{{ host.stdout_lines[0] }}" ]
+      - [ ipa-client-install, --mkhomedir, --force-ntpd, --ssh-trust-dns, --enable-dns-updates, --unattended, --password, "{{ spassword }}" ]
 
 - name: get facts about server
   os_server_facts:

@@ -1,2 +1,3 @@
 ---
 # tasks file for ic_server_add
+- include: server_add.yml

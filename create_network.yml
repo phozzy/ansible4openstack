@@ -1,0 +1,17 @@
+---
+- name: Create server in Openstack cloud
+  hosts: localhost
+
+  tasks:
+  - name: create network
+    os_network:
+      name: "{{ network_name }}"
+      state: present
+      admin_state_up: True
+      # shared: True
+
+  - name: create subnet
+    os_subnet:
+      name: "{{ subnet_name }}"
+      cidr: "{{ cidr }}"
+      

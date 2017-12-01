@@ -1,0 +1,5 @@
+---
+# tasks file for add_host2ipa
+- include: remove_cookie.yml
+- include: get_cookie.yml
+...

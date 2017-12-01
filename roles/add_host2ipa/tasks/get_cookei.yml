@@ -1,0 +1,5 @@
+---
+- name: ask freeipa for cookie
+  command: curl -H referer:https://{{ ipahostname }}/ipa -c "{{ cookiejar }}" -b "{{ cookiejar }}" --cacert /etc/ipa/ca.crt --negotiate -u : -X POST https://{{ ipahostname }}/ipa/session/login_kerberos
+  creates: "{{ cookiejar }}"
+...

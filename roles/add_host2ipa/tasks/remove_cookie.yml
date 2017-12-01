@@ -1,0 +1,6 @@
+---
+- name: remove cookie jar file if exist
+  file:
+    state: absent
+    path: "{{ cookiejar }}"
+...

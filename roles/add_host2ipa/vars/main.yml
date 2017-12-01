@@ -1,0 +1,3 @@
+---
+# vars file for add_host2ipa
+cookiejar: "~/my.cookie.jar"

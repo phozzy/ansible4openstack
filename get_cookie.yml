@@ -1,0 +1,7 @@
+---
+- name: get cookie from freeipa via kerberos ticket
+  hosts: localhost
+
+  roles:
+  - add_host2ipa
+...
